@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="877df6c0-03c7-4374-a833-a20e9e6eb03a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="62"/>
+	<parameter name="Tgl1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Tgl2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+     t_pengembalian.`kode_pengembalian` AS t_pengembalian_kode_pengembalian,
+     t_pengembalian.`kode_peminjaman` AS t_pengembalian_kode_peminjaman,
+     t_pengembalian.`total_harga` AS t_pengembalian_total_harga,
+     t_pengembalian.`tanggal_pengembalian` AS t_pengembalian_tanggal_pengembalian,
+     t_pengembalian.`kondisi_barang` AS t_pengembalian_kondisi_barang,
+     t_pengembalian.`denda` AS t_pengembalian_denda,
+     t_pengembalian.`total_akhir` AS t_pengembalian_total_akhir,
+     t_pengembalian.`bayar` AS t_pengembalian_bayar,
+     t_pengembalian.`kembali` AS t_pengembalian_kembali
+FROM
+     `t_pengembalian` t_pengembalian
+where 
+     t_pengembalian.tanggal_pengembalian BETWEEN $P{Tgl1} AND $P{Tgl2}]]>
+	</queryString>
+	<field name="t_pengembalian_kode_pengembalian" class="java.lang.String"/>
+	<field name="t_pengembalian_kode_peminjaman" class="java.lang.String"/>
+	<field name="t_pengembalian_total_harga" class="java.lang.Integer"/>
+	<field name="t_pengembalian_tanggal_pengembalian" class="java.sql.Date"/>
+	<field name="t_pengembalian_kondisi_barang" class="java.lang.String"/>
+	<field name="t_pengembalian_denda" class="java.lang.Integer"/>
+	<field name="t_pengembalian_total_akhir" class="java.lang.Integer"/>
+	<field name="t_pengembalian_bayar" class="java.lang.Integer"/>
+	<field name="t_pengembalian_kembali" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="382" y="30" width="76" height="20" uuid="38e880d1-7f80-4fdb-975f-6cf7e82207ca"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA["BAYIKU"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="10" width="237" height="20" uuid="0f64900f-92e4-4446-9abd-4a3ae967beac"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RENTAL PERLENGKAPAN BAYI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="50" width="267" height="20" uuid="08c45e67-2a63-43a2-ab3c-487fd28d1e35"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jln. Agung Blok P No.3 Komplek Kodau V Jatiasih]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="70" width="100" height="20" uuid="2aafc6c7-ae49-469e-bdf7-1934e48b2c8d"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telp. 0218482292]]></text>
+			</staticText>
+			<image>
+				<reportElement x="211" y="10" width="61" height="70" uuid="ed562068-40a4-4994-96d6-325b2fea61af"/>
+				<imageExpression><![CDATA["F:\\PI\\TEMA DESKTOP\\Aplikasi PI 1\\PROJECT\\SI_GUDANG\\SI_Pergudangan\\src\\si_pergudangan\\image\\baby-on-vector-design-clipart.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="36" width="100" height="20" uuid="5fd2bfa0-b0fc-45bf-8069-d6813889680d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERIODE : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="0" width="171" height="20" uuid="f0c77315-301c-4d44-bbcb-04d93b5a9498"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENGEMBALIAN]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="120" y="36" width="100" height="20" uuid="d6a96efe-812f-4c3c-a7a8-728105a98204"/>
+				<textFieldExpression><![CDATA[$P{Tgl1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="36" width="23" height="20" uuid="690a5a0d-d42b-4f80-9a3e-bbd84142326c"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="272" y="36" width="100" height="20" uuid="5328e0a6-0d07-4ee4-b7f6-c9f8865f6e66"/>
+				<textFieldExpression><![CDATA[$P{Tgl2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="120" height="20" uuid="3b70fa9e-b4a1-4012-9cbf-015e02c97975"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[KODE PENGEMBALIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="41" width="113" height="20" uuid="813de4d8-6d94-47e3-bd20-3570e9e31afb"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[KODE PEMINJAMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="41" width="100" height="20" uuid="0a283f06-02de-42f9-8300-c2f814d619bf"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[SUBTOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="41" width="110" height="20" uuid="d0817553-b1a0-43d2-8f00-314e855153da"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[TANGGAL KEMBALI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="41" width="100" height="20" uuid="dd87c6d8-115d-4ee8-834e-d96620831ffb"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[KONDISI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="544" y="41" width="100" height="20" uuid="6e31533a-74ac-4167-b311-f98e6ebd5b0a"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[DENDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="644" y="41" width="100" height="20" uuid="bceac84e-2247-401e-ac53-409137db246a"/>
+				<box>
+					<bottomPen lineWidth="2.25"/>
+				</box>
+				<text><![CDATA[TOTAL AKHIR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="120" height="20" uuid="472be6b8-12dd-496c-a902-13341fecb706"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kode_pengembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="113" height="20" uuid="625552ce-37ff-4e3a-a010-c961f6daa29e"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kode_peminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="0" width="100" height="20" uuid="18b2d541-94e0-4fe8-aa5f-0ecc61fbd997"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_total_harga}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="333" y="0" width="110" height="20" uuid="cc0dfcd5-bd37-4cdb-8980-1532c04ab551"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_tanggal_pengembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="100" height="20" uuid="60b06bd8-5f75-4a11-b066-96c8cbbec3ba"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kondisi_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="544" y="0" width="100" height="20" uuid="4acd7780-d19d-4f69-af91-24f8015d44ab"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_denda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="100" height="20" uuid="05ba1ed8-ef05-4bb2-92f3-92b7199752aa"/>
+				<box>
+					<bottomPen lineWidth="1.75"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_total_akhir}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

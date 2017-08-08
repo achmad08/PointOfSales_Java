@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a1ea6fe-ef6d-428b-9a03-6aceb023be41">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="199"/>
+	<parameter name="Tempo" class="java.lang.String"/>
+	<parameter name="kode_kembali" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     t_pengembalian.`kode_pengembalian` AS t_pengembalian_kode_pengembalian,
+     t_pengembalian.`kode_peminjaman` AS t_pengembalian_kode_peminjaman,
+     t_pengembalian.`total_harga` AS t_pengembalian_total_harga,
+     t_pengembalian.`tanggal_pengembalian` AS t_pengembalian_tanggal_pengembalian,
+     t_pengembalian.`kondisi_barang` AS t_pengembalian_kondisi_barang,
+     t_pengembalian.`denda` AS t_pengembalian_denda,
+     t_pengembalian.`total_akhir` AS t_pengembalian_total_akhir,
+     t_pengembalian.`bayar` AS t_pengembalian_bayar,
+     t_pengembalian.`kembali` AS t_pengembalian_kembali
+FROM
+     `t_pengembalian` t_pengembalian
+WHERE
+ 	t_pengembalian.`kode_pengembalian` = $P{kode_kembali};]]>
+	</queryString>
+	<field name="t_pengembalian_kode_pengembalian" class="java.lang.String"/>
+	<field name="t_pengembalian_kode_peminjaman" class="java.lang.String"/>
+	<field name="t_pengembalian_total_harga" class="java.lang.Integer"/>
+	<field name="t_pengembalian_tanggal_pengembalian" class="java.sql.Date"/>
+	<field name="t_pengembalian_kondisi_barang" class="java.lang.String"/>
+	<field name="t_pengembalian_denda" class="java.lang.Integer"/>
+	<field name="t_pengembalian_total_akhir" class="java.lang.Integer"/>
+	<field name="t_pengembalian_bayar" class="java.lang.Integer"/>
+	<field name="t_pengembalian_kembali" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="281" y="2" width="100" height="20" uuid="a238706b-eea5-46bf-b920-96660f4e59e3"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="-1" width="506" height="49" uuid="c5a29a71-0758-4698-b813-f0b70972c4f4"/>
+				<textElement>
+					<font fontName="Adobe Arabic" size="16"/>
+				</textElement>
+				<text><![CDATA[RENTAL PERALATAN BAYI ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="22" width="177" height="49" uuid="be229bb5-d451-4bbe-9ec8-c42f7d3beaaa"/>
+				<textElement>
+					<font fontName="Adobe Arabic" size="16"/>
+				</textElement>
+				<text><![CDATA["BAYIKU" ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="26" y="-1" width="78" height="80" uuid="1bbd4cd5-50eb-4fd1-9559-bc48c177f0ac"/>
+				<imageExpression><![CDATA["F:\\PI\\TEMA DESKTOP\\Aplikasi PI 1\\PROJECT\\SI_GUDANG\\SI_Pergudangan\\src\\si_pergudangan\\image\\baby-on-vector-design-clipart.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="128" y="0" width="301" height="20" uuid="81ed86fb-6963-4b29-a9d5-bde84cdef7c5"/>
+				<text><![CDATA[Jln. Agung Komplek Kodau V Jatimekar Jatiasih Kota Bekasi]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="159" y="11" width="222" height="20" uuid="b4b9eb60-7a78-4725-be1b-eee7f028c165"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BUKTI TANDA PENGEMBALIAN BARANG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="348" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="20" width="124" height="20" uuid="297e897d-cbac-4748-bad4-523b446b0785"/>
+				<text><![CDATA[Kode Pengembalian :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="53" width="124" height="20" uuid="3145d54e-9f9a-4f50-92b0-515262eb6c69"/>
+				<text><![CDATA[Kode Peminjaman : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="85" width="124" height="20" uuid="2f674296-9d93-437b-99e3-a1b60fc81bef"/>
+				<text><![CDATA[Subtotal  : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="115" width="124" height="20" uuid="1c88fab0-8470-4572-ac81-6d1343e2062f"/>
+				<text><![CDATA[Tanggal Kembali : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="191" width="124" height="20" uuid="6f790491-984d-4aa8-85d0-e03a63cbc281"/>
+				<text><![CDATA[Kondisi Barang : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="228" width="124" height="20" uuid="93bdd0ec-273b-43ff-8ed3-91999ad5044f"/>
+				<text><![CDATA[Denda : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="262" width="124" height="20" uuid="d2000e3a-3e80-47b9-8c7b-afb5b0ed889a"/>
+				<text><![CDATA[Total : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="293" width="124" height="20" uuid="fae55c0c-b890-4590-ab73-fd7054b7cd25"/>
+				<text><![CDATA[Bayar : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="326" width="124" height="20" uuid="4b79b44d-37a8-41a5-9ad9-c2400d3f82d5"/>
+				<text><![CDATA[Kembali : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="159" y="20" width="100" height="20" uuid="8b2086b4-4696-40ca-9d0b-e5b86e7b1255"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kode_pengembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="53" width="100" height="20" uuid="44a1cdba-f158-4ea1-a855-540a92c4802d"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kode_peminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="85" width="100" height="20" uuid="aea99e00-34f5-4c24-a2ae-357e45c8cbeb"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_total_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="115" width="100" height="20" uuid="508f3f64-4e0a-45d9-bf19-7c7d052de3ab"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_tanggal_pengembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="191" width="100" height="20" uuid="9443366e-456f-4b09-b2ae-d44d367467b7"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kondisi_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="228" width="100" height="20" uuid="7f2f4eb2-3ded-49ac-85f7-0746fa0ffc8e"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_denda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="262" width="100" height="20" uuid="41323161-982c-482c-81b6-9090703e463b"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_total_akhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="293" width="100" height="20" uuid="b5f61f0f-bf94-4788-92ab-fcd44b207adf"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="159" y="326" width="100" height="20" uuid="cad100a0-6437-4210-9cf6-cfa86821f254"/>
+				<textFieldExpression><![CDATA[$F{t_pengembalian_kembali}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="151" width="100" height="20" uuid="19d92ffb-36b5-43fc-b2a2-b0b8f983c72f"/>
+				<text><![CDATA[Jatuh Tempo : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="159" y="151" width="100" height="20" uuid="6f9498cd-fe85-4163-83a7-485cd5e86750"/>
+				<textFieldExpression><![CDATA[$P{Tempo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
